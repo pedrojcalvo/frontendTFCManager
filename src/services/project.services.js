@@ -5,7 +5,8 @@ import { authHeader } from './authHeader.services';
 export const getProjects = async() =>{ 
     try{
         const response = await axios.get('/api/projects', {headers: {Authorization: 'Bearer ' + await authHeader()}});
-        return response.data.users;
+        console.log(response.data);
+        return response.data.projects;
     }catch(error){
         return error.response.data
     }
@@ -14,7 +15,7 @@ export const getProjects = async() =>{
 export const getInactiveProjects = async() =>{ 
     try{
         const response = await axios.get('/api/projects/inactives', {headers: {Authorization: 'Bearer ' + await authHeader()}});
-        return response.data.users;
+        return response.data.projects;
     }catch(error){
         return error.response.data
     }
